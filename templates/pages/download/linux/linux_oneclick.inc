@@ -13,6 +13,6 @@ the installer from EnterpriseDB for all supported versions.
 </p>
 
 <p>
-<b>Note: The one click installers do not integrate with
-platform-specific packaging systems.</b>
+<i>Note:</i> The one click installers do not integrate with
+platform-specific packaging systems.
 </p>
