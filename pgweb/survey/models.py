@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.functional import cached_property
 
 # internal text/value object
 class SurveyQuestion(object):
@@ -36,11 +37,9 @@ class Survey(models.Model):
 			if not v: break
 			yield SurveyQuestion(i, v)
 
-	@property
+	@cached_property
 	def answers(self):
-		if not hasattr(self, "_answers"):
-			self._answers = SurveyAnswer.objects.get_or_create(survey=self)[0]
-		return self._answers
+		return SurveyAnswer.objects.get_or_create(survey=self)[0]
 
 	@property
 	def completeanswers(self):
